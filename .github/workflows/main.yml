@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Create a tree of the repo
-        run: tree . -H github-actions-builds -o index.html
+        run: tree . -H . -o index.html
 
       - name: Push changes to repo
         run: |
