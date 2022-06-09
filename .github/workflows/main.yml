@@ -25,10 +25,13 @@ jobs:
 
       - name: Create a tree of the repo
         run: tree . -H github-actions-builds -o index.html
-        
-      - name: Publish to Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
-          force_orphan: true
+
+      - name: Push changes to repo
+        uses: actions/checkout@v3
+      - run: |
+          date > generated.txt
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "generated"
+          git push
