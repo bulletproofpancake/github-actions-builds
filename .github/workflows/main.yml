@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Create a tree of the repo
-        run: tree . -H . -I '*.zip|*.html' -o index.html
+        run: tree . -H . -P '*.zip|*.html' -o index.html
 
       - name: Push changes to repo
         run: |
